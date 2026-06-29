@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Brutalist Custom Classes */
+.brutal-border {
+  border: 3px solid #000000;
+}
+
+.brutal-border-sm {
+  border: 2px solid #000000;
+}
+
+.brutal-shadow {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.brutal-shadow-lg {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.brutal-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.brutal-shadow-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.brutal-shadow-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brutal-bg-neon {
+  background-color: #00FF00;
+}
+
+.brutal-bg-grey {
+  background-color: #E0E0E0;
+}
+
+/* CRT overlay (subtle addition to keep original playful hardware vibe) */
+.crt-screen {
+  position: relative;
+}
+
+.crt-screen::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.08) 50%);
+  background-size: 100% 3px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Custom marquee animation */
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: scroll 20s linear infinite;
+}
+
+/* Breadboard custom styles */
+.breadboard-grid {
+  background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+/* Custom glitch animation */
+@keyframes textGlitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-1px, 1px) }
+  40% { transform: translate(-1px, -1px) }
+  60% { transform: translate(1.5px, 0.5px) }
+  80% { transform: translate(0.5px, -1px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-active {
+  animation: textGlitch 0.2s steps(2) infinite;
+  text-shadow: 2px 0 #00FF00, -2px 0 #ff0055;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-left: 2px solid #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+
